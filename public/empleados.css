@@ -1,0 +1,301 @@
+body {
+    background-image: url('carbon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Evita desplazamiento horizontal innecesario */
+}
+
+  
+  #main {
+    margin-left: 220px; /* Deja espacio para el sidebar */
+    padding: 20px; /* Espaciado interno para que no se sobrepongan los elementos */
+}
+.sidebar {
+    width: 220px; /* Reduce el ancho */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+
+.cuadro {
+    width: 600px;  /* Aumenta el ancho */
+    height: auto; /* Ajuste de altura */
+    padding: 30px; /* Más espacio interno */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    margin: 50px auto; /* Centrado vertical y horizontal */
+    top: 0;
+    transform: none;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+}
+
+form input, form select, form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form input[type="text"], form select {
+    width: 100%;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para la lista de empleados */
+/* Estilos para la lista de empleados transformada en tabla */
+#employee-list {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Hacer que las celdas se toquen */
+    border: 1px solid #ccc;
+}
+
+/* Ajustar el ancho de las columnas de la tabla */
+#employee-list th, #employee-list td {
+    padding: 10px 20px; /* Aumenta el espacio horizontal */
+    text-align: left;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Permitir que el texto se ajuste */
+    max-width: 150px; /* Limitar el ancho máximo */
+    vertical-align: middle; /* Centra verticalmente el contenido */
+}
+
+#employee-list th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+#employee-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#employee-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para el botón de eliminar */
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 15px; /* Aumenta el espacio interno */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 100px; /* Asegura un ancho mínimo */
+    text-align: center; /* Centra el texto */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    margin: 0 auto; /* Centra el botón horizontalmente dentro de la celda */
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+/* Ajustar la última columna de la tabla para que no quede pegada al borde */
+#employee-list td:last-child {
+    text-align: center; /* Centra el contenido de la celda */
+    padding-right: 30px; /* Agrega más espacio adicional a la derecha */
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    #main {
+      display: block;
+      margin-left: 0;
+      padding: 10px;
+    }
+    table#employee-list,
+    table#employee-list thead,
+    table#employee-list tbody,
+    table#employee-list th,
+    table#employee-list td,
+    table#employee-list tr {
+      display: block;
+    }
+    table#employee-list tr {
+      margin-bottom: 15px;
+    }
+    table#employee-list td {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+    }
+    table#employee-list th {
+      display: none;
+    }
+
+    .cuadro {
+        width: 90%;
+        margin: 20px auto;
+        transform: none;
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    #employee-list li {
+        font-size: 14px;
+    }
+}
+/* Contenedor principal después del sidebar */
+#main {
+    margin-left: 220px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+  }
+  
+  /* Ajusta el <aside> para que no flote ni meta scroll */
+  aside {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+/* Clase para ocultar el formulario */
+.hidden {
+    display: none;
+}
+
+/* Animación para mostrar el formulario */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación para ocultar el formulario */
+@keyframes fadeOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(50px); /* Desliza hacia abajo */
+        opacity: 0;
+    }
+}
+
+/* Estilo del formulario */
+#empleadoForm {
+    background-color: #8B0000; /* Rojo oscuro */
+    color: white; /* Texto blanco para contraste */
+    border: 2px solid #444; /* Borde oscuro */
+    animation: slideIn 0.5s ease-out; /* Animación al mostrarse */
+    transition: opacity 0.5s ease-out; /* Transición suave */
+    overflow: hidden; /* Recorta cualquier contenido que sobresalga */
+}
+
+/* Cambiar el color de las etiquetas del formulario a blanco */
+#empleadoForm label {
+    color: white; /* Cambia el color del texto a blanco */
+    font-weight: bold; /* Opcional: hace que el texto sea más legible */
+}
+
+/* Clase para ocultar el formulario con animación */
+.hidden {
+    animation: fadeOut 0.5s ease-in; /* Animación al ocultarse */
+    opacity: 0;
+    pointer-events: none; /* Desactiva interacciones mientras está oculto */
+}
+
+/* Botón de cancelar */
+#cancel-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#cancel-btn:hover {
+    background-color: #e53935;
+}

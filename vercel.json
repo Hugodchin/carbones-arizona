@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Build completado'",
+  "outputDirectory": "public",
+  "rewrites": [
+    { "source": "/auth/login", "destination": "/api/auth/login" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}

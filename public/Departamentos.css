@@ -1,0 +1,94 @@
+/* Contenedor principal */
+.departamentos {
+    max-width: 1000px;
+    margin: 40px auto 20px auto;
+    padding: 24px 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+.departamentos h1 {
+    font-size: 2rem;
+    color: #0D47A1;
+    margin-bottom: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Tabla de departamentos */
+.departamentos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    background: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.departamentos th, .departamentos td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+}
+
+.departamentos th {
+    background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.departamentos tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.departamentos tr:hover {
+    background: #e3f2fd;
+}
+
+/* Responsividad */
+@media (max-width: 700px) {
+    .departamentos {
+        padding: 10px 2px;
+    }
+    .departamentos table, .departamentos th, .departamentos td {
+        font-size: 0.95rem;
+    }
+    .departamentos h1 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Modo oscuro */
+body.dark .departamentos {
+    background: #232323;
+    color: #eee;
+}
+
+body.dark .departamentos table {
+    background: #2c2c2c;
+}
+
+body.dark .departamentos th {
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    color: #fff;
+}
+
+body.dark .departamentos td {
+    color: #eee;
+}
+
+body.dark .departamentos tr:nth-child(even) {
+    background: #232323;
+}
+
+body.dark .departamentos tr:hover {
+    background: #1a3a52;
+}

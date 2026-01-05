@@ -1,0 +1,61 @@
+<!-- ...existing HTML code... -->
+<head>
+    <!-- ...existing code... -->
+    <link rel="stylesheet" href="Contactanos.css">
+    <!-- ...existing code... -->
+</head>
+<body>
+    <div class="frase-contacto">
+        ¡Queremos escucharte! <br>
+        Déjanos tu mensaje y te responderemos lo antes posible.
+    </div>
+    <div class="form-container">
+        <form id="contact-form">
+            <div class="input-box">
+                <input type="text" name="nombre" placeholder="Nombre y apellido" required>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="asunto" placeholder="Asunto" required>
+            </div>
+            <div class="input-box">
+                <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+            </div>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+        <div id="msg"></div>
+        <button id="btn-volver" class="btn-volver-inicio">Volver al inicio de sesión</button>
+    </div>
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            nombre: form.nombre.value,
+            email: form.email.value,
+            asunto: form.asunto.value,
+            mensaje: form.mensaje.value
+        };
+        try {
+            const res = await fetch('http://localhost:3300/api/contacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            document.getElementById('msg').innerHTML = result.message || 'Error desconocido';
+            if(res.ok) form.reset();
+        } catch (err) {
+            document.getElementById('msg').innerHTML = '❌ Error al enviar el mensaje.';
+        }
+    });
+
+    // Botón volver al inicio de sesión
+    document.getElementById('btn-volver').addEventListener('click', function() {
+        window.location.href = 'index.html';
+    });
+    </script>
+</body>
+<!-- ...existing HTML code... -->

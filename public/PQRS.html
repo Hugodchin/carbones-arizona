@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web de Base de datos CARBONORA</title>
+        <meta name="description" content="Base de datos de empleados de la empresa minera de carbones CARBONORA.">
+        <meta name="keywords" content="datos, empleados, mineria, HTML, SEO">
+        <script src="auth-guard.js"></script>
+        <link rel="stylesheet" href="carbonora.css">
+        <link rel="stylesheet" href="empleados.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+            .manual-container {
+                max-width: 900px;
+                margin: 40px auto 20px auto;
+                background: #fff;
+                border-radius: 18px;
+                box-shadow: 0 8px 32px #0002;
+                padding: 32px 24px;
+            }
+            .manual-container h2, .manual-container h3 {
+                color: #0D47A1;
+            }
+            .manual-container ul, .manual-container ol {
+                margin-left: 1.5em;
+            }
+            .manual-container code {
+                background: #f4f4f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.98em;
+            }
+            .faq-section {
+                margin-top: 32px;
+            }
+            .faq-section h3 {
+                margin-bottom: 10px;
+            }
+            .faq-section details {
+                margin-bottom: 12px;
+            }
+            .faq-section summary {
+                font-weight: bold;
+                cursor: pointer;
+            }
+            /* Modo oscuro para el manual */
+            body.dark .manual-container {
+                background: #232323;
+                color: #f4f4f4;
+            }
+            body.dark .manual-container h2,
+            body.dark .manual-container h3 {
+                color: #fff;
+            }
+            body.dark .manual-container code {
+                background: #333;
+                color: #fff;
+            }
+        </style>
+    </head>
+<body>
+    <div class="cuadro">
+        <h2>PQRS</h2>
+        <p>Aquí encontrarás las PQRS</p>
+    </div>
+
+    <div class="manual-container">
+        <h2>Manual de Usuario y Preguntas Frecuentes</h2>
+        <p>Bienvenido al sistema de gestión de empleados y recursos de la empresa minera CARBONORA. Aquí encontrarás una guía completa sobre el uso de la plataforma, incluyendo la gestión de empleados, visualización de estadísticas, manejo de tablas y preguntas frecuentes.</p>
+        
+        <h3>1. Navegación General</h3>
+        <ul>
+            <li><b>Sidebar:</b> El menú lateral izquierdo permite navegar entre las diferentes secciones: Inicio, Empleados, Departamentos, Áreas, Notificaciones, Estadísticas, PQRS y Soporte.</li>
+            <li><b>Modo Oscuro:</b> Puedes alternar entre modo claro y oscuro usando el interruptor en la parte inferior de la barra lateral.</li>
+            <li><b>Botón Volver Arriba:</b> Aparece al hacer scroll y te permite regresar rápidamente al inicio de la página.</li>
+        </ul>
+
+        <h3>2. Gestión de Empleados</h3>
+        <ul>
+            <li><b>Ver empleados:</b> En la sección "Empleados" se muestra una tabla con todos los empleados registrados y sus datos principales.</li>
+            <li><b>Agregar empleado:</b> Haz clic en "Agregar Empleado" para mostrar el formulario. Completa todos los campos requeridos y pulsa "Agregar Empleado".</li>
+            <li><b>Eliminar empleado:</b> Haz clic en el botón "Eliminar" correspondiente a un empleado en la tabla para borrarlo del sistema.</li>
+            <li><b>Campos dinámicos:</b> Los campos de EPS y Área se cargan automáticamente desde la base de datos.</li>
+        </ul>
+
+        <h3>3. Estadísticas y Gráficos</h3>
+        <ul>
+            <li><b>Acceso:</b> Ve a la sección "Estadísticas" desde la barra lateral.</li>
+            <li><b>Gráficos disponibles:</b>
+                <ul>
+                    <li>Empleados por Área</li>
+                    <li>Empleados por Sexo</li>
+                    <li>Empleados por Estado Civil</li>
+                    <li>Empleados por Cargo</li>
+                    <li>Empleados por Departamento</li>
+                </ul>
+            </li>
+            <li><b>Visualización:</b> Los gráficos se muestran en una cuadrícula ordenada y se actualizan automáticamente con los datos de la base de datos.</li>
+            <li><b>Colores y modo oscuro:</b> Los títulos de los gráficos permanecen en negro para mejor visibilidad en ambos modos.</li>
+        </ul>
+
+        <h3>4. Tablas y Listados</h3>
+        <ul>
+            <li><b>Departamentos y Áreas:</b> Puedes consultar los departamentos y áreas desde sus respectivas secciones en la barra lateral.</li>
+            <li><b>Tablas dinámicas:</b> Los listados se actualizan automáticamente al agregar o eliminar registros.</li>
+        </ul>
+
+        <h3>5. PQRS y Soporte</h3>
+        <ul>
+            <li><b>PQRS:</b> En esta sección puedes consultar preguntas, quejas, reclamos y sugerencias frecuentes sobre el sistema.</li>
+            <li><b>Soporte:</b> Si tienes problemas técnicos, dirígete a la sección "Soporte" para contactar al equipo de ayuda.</li>
+        </ul>
+
+        <div class="faq-section">
+            <h3>Preguntas Frecuentes (FAQ)</h3>
+            <details>
+                <summary>¿Cómo agrego un nuevo empleado?</summary>
+                <div>
+                    Ve a la sección <b>Empleados</b>, haz clic en <b>Agregar Empleado</b>, completa el formulario y pulsa el botón para guardar.
+                </div>
+            </details>
+            <details>
+                <summary>¿Por qué no aparecen datos en los gráficos?</summary>
+                <div>
+                    Puede deberse a que no hay empleados registrados en esa categoría o a un problema de conexión con la base de datos. Verifica que los endpoints estén funcionando y que existan datos en la base.
+                </div>
+            </details>
+            <details>
+                <summary>¿Cómo elimino un empleado?</summary>
+                <div>
+                    En la tabla de empleados, haz clic en el botón <b>Eliminar</b> junto al registro correspondiente.
+                </div>
+            </details>
+            <details>
+                <summary>¿Cómo cambio entre modo claro y oscuro?</summary>
+                <div>
+                    Usa el interruptor de modo en la parte inferior de la barra lateral. El sistema recordará tu preferencia.
+                </div>
+            </details>
+            <details>
+                <summary>¿Qué hago si no puedo agregar un empleado?</summary>
+                <div>
+                    Verifica que todos los campos estén completos y que la cédula no esté repetida. Si el problema persiste, contacta a soporte.
+                </div>
+            </details>
+            <details>
+                <summary>¿Cómo se actualizan las listas de EPS y Áreas?</summary>
+                <div>
+                    Estas listas se cargan automáticamente desde la base de datos cada vez que abres el formulario de empleados.
+                </div>
+            </details>
+            <details>
+                <summary>¿Qué hago si tengo otra pregunta o problema?</summary>
+                <div>
+                    Dirígete a la sección <b>Soporte</b> y utiliza el formulario de contacto para recibir ayuda personalizada.
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <footer>
+        <p><em>Ayuda</em></p>
+        <p><em>Contáctenos</em></p>
+    </footer>
+
+    <!-- Sidebar y scripts (NO TOCAR) -->
+    <!-------------------------------------CREACION INICIO SIDE BAR---------------------------------------------------------->
+    <nav class="sidebar close">
+        <header>
+          <div class="image-text">
+            <span class="image">
+              <img src="Imagenes/logo-arizona.jpg" alt="LOGO">
+            </span>
+            <div class="text header-text">
+              <span class="name">Carbonora</span>
+              <span class="profesion">RH</span>
+            </div>
+          </div>
+          <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+          <div class="menu">
+            <li class="search-box">
+              <i class='bx bx-search icon'></i>
+              <input type="text" placeholder="Buscar...">
+            </li>
+            <ul class="menu-links">
+              <li class="nav-link">
+                <a href="Inicio.html">
+                  <i class='bx bx-home-alt icon'></i>
+                  <span class="text nav-text">Inicio</span>
+                </a>
+              </li>
+              <!-- ITEM EMPLEADOS -->
+              <li class="nav-link has-submenu">
+                <a href="Empleados.html">
+                  <i class='bx bxs-user-detail icon'></i>
+                  <span class="text nav-text">Empleados</span>
+                </a>
+                <ul class="SubEmpleados">
+                  <li><a href="Gerente.html">Gerente</a></li>
+                  <li><a href="Departamentos.html">Departamentos</a></li>
+                  <li><a href="Areas.html">Áreas</a></li>
+                </ul>
+              </li>
+              <li class="nav-link">
+                <a href="notificaciones.html">
+                  <i class='bx bx-bell icon'></i>
+                  <span class="text nav-text">Notificaciones</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="estadisticas.html">
+                  <i class='bx bx-pie-chart-alt icon'></i>
+                  <span class="text nav-text">Estadisticas</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="PQRS.html">
+                  <i class='bx bx-comment-error icon'></i>
+                  <span class="text nav-text">PQRS</span>
+                </a>
+              </li>
+              <li class="nav-link">
+                <a href="soporte.html">
+                  <i class='bx bx-help-circle icon'></i>
+                  <span class="text nav-text">Soporte</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="bottom-content">
+            <li>
+              <a href="index.html">
+                <i class='bx bx-log-out icon'></i>
+                <span class="text nav-text">Salir</span>
+              </a>
+            </li>
+            <li class="mode">
+              <div class="sun-moon">
+                <i class='bx bx-moon icon moon'></i>
+                <i class='bx bx-sun icon sun'></i>
+              </div>
+              <span class="mode-text text">Modo oscuro</span>
+              <div class="toggle-switch">
+                <span class="switch"></span>
+              </div>
+            </li>
+          </div>
+        </div>
+      </nav>
+      <button id="scrollTopBtn" title="Volver arriba">⬆</button>
+    <script>
+    // ======= Referencias =======
+    const sidebar   = document.querySelector('.sidebar');
+    const toggleBtn = document.querySelector('.toggle');
+
+    // Ítem Empleados y su submenú
+    const empleadosItem = document.querySelector('.nav-link a[href="Empleados.html"]').parentElement;
+    const submenu = empleadosItem.querySelector('.SubEmpleados');
+
+    // ======= Sidebar: Hover general =======
+    sidebar.addEventListener('mouseenter', () => {
+      if (!sidebar.classList.contains('pinned')) {
+        sidebar.classList.remove('close');
+      }
+    });
+    sidebar.addEventListener('mouseleave', () => {
+      if (!sidebar.classList.contains('pinned')) {
+        sidebar.classList.add('close');
+      }
+    });
+
+    // ======= Botón Toggle (fijar/desfijar) =======
+    toggleBtn.addEventListener('click', () => {
+      if (sidebar.classList.contains('pinned')) {
+        sidebar.classList.remove('pinned');
+        sidebar.classList.add('close');
+      } else {
+        sidebar.classList.remove('close');
+        sidebar.classList.add('pinned');
+      }
+    });
+
+    // ======= Hover en "Empleados" para expandir la barra y mostrar submenú =======
+    empleadosItem.addEventListener('mouseenter', () => {
+      // Expandir la sidebar si está colapsada
+      if (sidebar.classList.contains('close')) {
+        sidebar.classList.remove('close');
+      }
+      // Mostrar el submenú
+      submenu.style.display = 'block';
+    });
+
+    // ======= Lógica para mantener submenú abierto mientras el mouse está sobre él =======
+    let isOverSubmenu = false;
+
+    submenu.addEventListener('mouseenter', () => {
+      isOverSubmenu = true;
+    });
+    submenu.addEventListener('mouseleave', () => {
+      isOverSubmenu = false;
+      submenu.style.display = 'none';
+      if (!sidebar.classList.contains('pinned')) {
+        sidebar.classList.add('close');
+      }
+    });
+
+    // Al salir del ítem "Empleados", damos un pequeño retardo por si se mueve al submenú
+    empleadosItem.addEventListener('mouseleave', () => {
+      setTimeout(() => {
+        if (!isOverSubmenu) {
+          submenu.style.display = 'none';
+          if (!sidebar.classList.contains('pinned')) {
+            sidebar.classList.add('close');
+          }
+        }
+      }, 150);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector('body');
+    const modeSwitch = document.querySelector('.toggle-switch');
+    const modeText = document.querySelector('.mode-text');
+
+    if (!modeSwitch || !modeText || !body) return;
+
+    // Cargar modo desde localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        modeText.innerText = 'Modo claro';
+    }
+
+    // Cambiar entre modo oscuro y claro
+    modeSwitch.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        modeText.innerText = isDark ? 'Modo claro' : 'Modo oscuro';
+    });
+});
+
+    // Notificación al enviar PQRS
+    document.getElementById('soporteForm')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        // ...existing code para obtener campos...
+        const nombre = document.getElementById('soporte-nombre').value.trim();
+        const email = document.getElementById('soporte-email').value.trim();
+        const tipo = document.getElementById('soporte-tipo').value;
+        const asunto = document.getElementById('soporte-asunto').value.trim();
+        const mensaje = document.getElementById('soporte-mensaje').value.trim();
+        const successMsg = document.getElementById('soporte-success');
+        const errorMsg = document.getElementById('soporte-error');
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        if (!nombre || !email || !tipo || !asunto || !mensaje) {
+            errorMsg.textContent = "Todos los campos son obligatorios.";
+            errorMsg.style.display = 'block';
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/contacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nombre,
+                    email,
+                    asunto: `[${tipo}] ${asunto}`,
+                    mensaje
+                })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                successMsg.textContent = data.message || "Mensaje enviado correctamente.";
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+                this.reset();
+                // Notificación de PQRS enviada
+                const notis = JSON.parse(localStorage.getItem('notificaciones_carbonora') || '[]');
+                notis.push({
+                  tipo: 'added',
+                  mensaje: `Se envió una solicitud de soporte: <b>${tipo}</b> - <b>${asunto}</b>`,
+                  fecha: new Date().toLocaleString()
+                });
+                localStorage.setItem('notificaciones_carbonora', JSON.stringify(notis));
+                window.dispatchEvent(new Event('storage'));
+            } else {
+                errorMsg.textContent = data.message || "Error al enviar el mensaje.";
+                errorMsg.style.display = 'block';
+            }
+        } catch (err) {
+            errorMsg.textContent = "Error al enviar el mensaje.";
+            errorMsg.style.display = 'block';
+        }
+    });
+  </script>
+</body>
+</html>

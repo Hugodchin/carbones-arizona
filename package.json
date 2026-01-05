@@ -1,0 +1,54 @@
+{
+  "name": "proyecto-base-datos-carbones-arizona",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:api": "node server/index.js",
+    "electron": "electron .",
+    "start:dev": "concurrently \"node server/index.js\" \"wait-on http://localhost:3300 && electron .\"",
+    "setup": "npm install && npm --prefix server install",
+    "build:electron": "electron-builder build --win",
+    "build:release": "electron-builder build --win && node scripts/postbuild.js",
+    "test:db": "node test-db-connection.js",
+    "vercel-build": "echo 'Build completado'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "build": {
+    "appId": "com.carbones.arizona",
+    "productName": "Carbones Arizona",
+    "files": [
+      "electron/**/*",
+      "public/**/*",
+      "server/**/*",
+      "server.js",
+      "db.js",
+      "package.json",
+      ".env"
+    ],
+    "extraResources": [
+      { "from": ".env", "to": ".env" }
+    ],
+    "win": {
+      "target": ["nsis", "zip"],
+      "artifactName": "Carbones-Arizona-${version}.${ext}"
+    },
+    "asar": true
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "nodemailer": "^7.0.3",
+    "oracledb": "^6.8.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.0.0",
+    "wait-on": "^7.0.1"
+  }
+}

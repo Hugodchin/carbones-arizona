@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web de Base de datos CARBONORA</title>
+    <meta name="description" content="Base de datos de empleados de la empresa minera de carbones CARBONORA.">
+    <meta name="keywords" content="datos, empleados, mineria, HTML, SEO">
+    <link rel="stylesheet" href="carbonora.css">
+    <link rel="stylesheet" href="inicio-animations.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Sistema de protección de acceso -->
+    <script src="auth-guard.js"></script>
+</head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="Imagenes/logo-arizona.jpg" alt="LOGO">
+          </span>
+          <div class="text header-text">
+            <span class="name">Carbonora</span>
+            <span class="profesion">Invitado</span>
+          </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class='bx bx-search icon'></i>
+            <input type="text" placeholder="Buscar...">
+          </li>
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="inicio-invitado.html">
+                <i class='bx bx-home-alt icon'></i>
+                <span class="text nav-text">Inicio</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="contacto.html">
+                <i class='bx bx-envelope icon'></i>
+                <span class="text nav-text">Contacto</span>
+              </a>
+            </li>
+            <li class="nav-link">
+              <a href="soporte.html">
+                <i class='bx bx-support icon'></i>
+                <span class="text nav-text">Soporte</span>
+              </a>
+            </li>
+            <!-- ELIMINADO: Items solo para RH/Gerente -->
+            <li class="nav-link" style="display:none">
+              <a href="Empleados.html">
+                <i class='bx bxs-user-detail icon'></i>
+                <span class="text nav-text">Empleados</span>
+              </a>
+              <ul class="SubEmpleados">
+                <li><a href="Gerente.html">Gerente</a></li>
+                <li><a href="Departamentos.html">Departamentos</a></li>
+                <li><a href="Areas.html">Áreas</a></li>
+              </ul>
+            </li>
+            <li class="nav-link" style="display:none">
+              <a href="notificaciones.html">
+                <i class='bx bx-bell icon'></i>
+                <span class="text nav-text">Notificaciones</span>
+              </a>
+            </li>
+            <li class="nav-link" style="display:none">
+              <a href="estadisticas.html">
+                <i class='bx bx-pie-chart-alt icon'></i>
+                <span class="text nav-text">Estadisticas</span>
+              </a>
+            </li>
+            <li class="nav-link" style="display:none">
+              <a href="PQRS.html">
+                <i class='bx bx-comment-error icon'></i>
+                <span class="text nav-text">PQRS</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="bottom-content">
+          <li>
+            <a href="index.html">
+              <i class='bx bx-log-out icon'></i>
+              <span class="text nav-text">Salir</span>
+            </a>
+          </li>
+          <li class="mode">
+            <div class="sun-moon">
+              <i class='bx bx-moon icon moon'></i>
+              <i class='bx bx-sun icon sun'></i>
+            </div>
+            <span class="mode-text text">Modo oscuro</span>
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
+      </div>
+    </nav>
+
+    <section class="home">
+      <!-- Hero Banner Animado -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <i class='bx bxs-diamond'></i>
+            Carbones Arizona
+          </h1>
+          <p class="hero-subtitle">Extrayendo energía, construyendo futuro</p>
+          <div class="hero-stats">
+            <div class="stat-card animate-slide-up">
+              <i class='bx bxs-hard-hat'></i>
+              <h3 id="employees-count">0</h3>
+              <p>Empleados</p>
+            </div>
+            <div class="stat-card animate-slide-up delay-1">
+              <i class='bx bxs-truck'></i>
+              <h3>9+</h3>
+              <p>Años de Experiencia</p>
+            </div>
+            <div class="stat-card animate-slide-up delay-2">
+              <i class='bx bxs-shield-alt-2'></i>
+              <h3>100%</h3>
+              <p>Seguridad</p>
+            </div>
+          </div>
+        </div>
+        <div class="mining-animation">
+          <div class="coal-particle"></div>
+          <div class="coal-particle"></div>
+          <div class="coal-particle"></div>
+          <div class="coal-particle"></div>
+          <div class="coal-particle"></div>
+        </div>
+      </div>
+
+      <!-- Grid de Secciones Informativas -->
+      <div class="info-grid">
+        <div class="section-container card-animate">
+          <div class="section-icon">
+            <i class='bx bxs-bullseye'></i>
+          </div>
+          <h2 class="section-title">Misión de la Empresa</h2>
+          <p class="section-content">
+            CARBONES ARIZONA SAS es una empresa dedicada a la <strong>extracción, transporte y comercialización de carbón</strong>, comprometida con el bienestar de la comunidad, el desarrollo sostenible y el cumplimiento de las normativas legales vigentes en el sector minero, garantizando un servicio eficiente y de calidad.
+          </p>
+        </div>
+
+        <div class="section-container card-animate">
+          <div class="section-icon">
+            <i class='bx bxs-rocket'></i>
+          </div>
+          <h2 class="section-title">Visión de la Empresa</h2>
+          <p class="section-content">
+            Para el año 2027, CARBONES ARIZONA SAS será una empresa <strong>líder y reconocida</strong> en el mercado nacional e internacional por su compromiso con la excelencia operativa, la responsabilidad social y la sostenibilidad ambiental, impulsando el crecimiento económico y el desarrollo de su comunidad.
+          </p>
+        </div>
+
+        <div class="section-container card-animate">
+          <div class="section-icon">
+            <i class='bx bxs-briefcase'></i>
+          </div>
+          <h2 class="section-title">Contexto del Negocio</h2>
+          <p class="section-content">
+            CARBONES ARIZONA SAS es una empresa del sector minero dedicada a la extracción, transporte y comercialización de carbón, operando bajo <strong>estrictas normas de seguridad y calidad</strong>, con el objetivo de abastecer la demanda del mercado energético e industrial, promoviendo el desarrollo económico en sus zonas de influencia.
+          </p>
+        </div>
+      </div>
+
+      <!-- MENSAJE ESPECIAL PARA INVITADOS -->
+      <div class="guest-welcome" style="background: linear-gradient(135deg, #263238 0%, #37474f 100%); border-radius: 20px; padding: 40px; margin: 40px auto; max-width: 1200px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
+        <style>
+          @keyframes coalGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 193, 7, 0.6); }
+          }
+          @keyframes floatMining {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+          }
+          .guest-welcome::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 70%);
+            animation: coalGlow 4s ease-in-out infinite;
+          }
+          .guest-icon {
+            font-size: 4rem;
+            color: #ffc107;
+            animation: floatMining 3s ease-in-out infinite;
+            display: block;
+            margin: 0 auto 20px;
+          }
+          .guest-title {
+            color: #fff;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          }
+          .guest-subtitle {
+            color: #eceff1;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 15px 0 30px;
+          }
+          .guest-info-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,193,7,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+          }
+          .guest-info-box h4 {
+            color: #ffc107;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .guest-info-box p {
+            color: #eceff1;
+            font-size: 1rem;
+            margin: 12px 0;
+            padding-left: 25px;
+          }
+          .mining-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+          }
+          .mining-badge {
+            background: rgba(255,193,7,0.2);
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            transition: all 0.3s ease;
+          }
+          .mining-badge:hover {
+            background: rgba(255,193,7,0.3);
+            transform: translateY(-3px);
+          }
+          .mining-badge i {
+            font-size: 1.5rem;
+            color: #ffc107;
+          }
+        </style>
+        
+        <div style="text-align: center; position: relative; z-index: 1;">
+          <i class='bx bxs-briefcase guest-icon'></i>
+          <h2 class="guest-title">👋 ¡Bienvenido a Carbones Arizona!</h2>
+          <p class="guest-subtitle">
+            Somos una empresa minera comprometida con la <strong>excelencia operativa</strong> y el desarrollo sostenible. Conoce más sobre nuestra organización.
+          </p>
+          
+          <div class="guest-info-box">
+            <h4><i class='bx bxs-info-circle'></i> Información Disponible</h4>
+            <p>✓ Información corporativa y valores de la empresa</p>
+            <p>✓ Reglamento Interno de Trabajo actualizado</p>
+            <p>✓ Contacto directo con nuestro equipo</p>
+            <p>✓ Documentación pública sobre nuestra operación</p>
+          </div>
+
+          <div class="mining-decoration">
+            <div class="mining-badge">
+              <i class='bx bxs-hard-hat'></i>
+              <span>Sector Minero</span>
+            </div>
+            <div class="mining-badge">
+              <i class='bx bxs-diamond'></i>
+              <span>Carbón de Calidad</span>
+            </div>
+            <div class="mining-badge">
+              <i class='bx bxs-certification'></i>
+              <span>Certificados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCUMENTO DESTACADO: Reglamento Interno -->
+      <div class="featured-document" style="background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%); border-radius: 24px; padding: 0; margin: 40px auto 60px; max-width: 1200px; box-shadow: 0 20px 60px rgba(13, 71, 161, 0.4); position: relative; overflow: hidden; animation: featuredPulse 3s ease-in-out infinite;">
+        <style>
+          @keyframes featuredPulse {
+            0%, 100% { box-shadow: 0 20px 60px rgba(13, 71, 161, 0.4); }
+            50% { box-shadow: 0 20px 80px rgba(13, 71, 161, 0.6); }
+          }
+          @keyframes badgeBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+          @keyframes starRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          @keyframes pulseRing {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+          }
+          @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+          }
+          .featured-badge {
+            position: absolute; top: 20px; right: 20px;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #000; padding: 10px 20px; border-radius: 50px;
+            font-weight: bold; font-size: 0.85rem; display: flex;
+            align-items: center; gap: 8px; z-index: 10;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
+            animation: badgeBounce 2s ease-in-out infinite;
+          }
+          .featured-badge i { font-size: 1.2rem; animation: starRotate 4s linear infinite; }
+          .featured-content { display: flex; align-items: center; gap: 40px; padding: 50px 60px; position: relative; }
+          .featured-icon-wrapper { position: relative; width: 200px; height: 200px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+          .pulse-ring { position: absolute; width: 100%; height: 100%; border: 3px solid rgba(255, 255, 255, 0.5); border-radius: 50%; animation: pulseRing 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+          .pulse-ring.delay-1 { animation-delay: 1s; }
+          .pulse-ring.delay-2 { animation-delay: 2s; }
+          .featured-icon-wrapper i { font-size: 7rem; color: white; z-index: 5; position: relative; animation: iconFloat 3s ease-in-out infinite; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+          .featured-text { flex: 1; color: white; }
+          .featured-text h2 { font-size: 2.5rem; margin-bottom: 15px; color: white; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+          .featured-subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 25px; line-height: 1.6; }
+          .featured-highlights { list-style: none; padding: 0; margin: 25px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+          .featured-highlights li { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; padding: 8px 0; }
+          .featured-highlights i { color: #4caf50; font-size: 1.5rem; background: white; border-radius: 50%; padding: 2px; }
+          .featured-buttons { display: flex; gap: 15px; margin: 30px 0 20px 0; flex-wrap: wrap; }
+          .btn-primary-large, .btn-secondary-large { padding: 18px 35px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease; border: none; position: relative; overflow: hidden; text-decoration: none; }
+          .btn-primary-large { background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); color: #000; box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4); }
+          .btn-primary-large:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 35px rgba(255, 193, 7, 0.6); }
+          .btn-secondary-large { background: transparent; color: white; border: 2px solid white; }
+          .btn-secondary-large:hover { background: white; color: #0D47A1; transform: translateY(-3px); }
+          .featured-note { background: rgba(255, 255, 255, 0.15); padding: 15px 20px; border-radius: 12px; border-left: 4px solid #ffc107; display: flex; align-items: center; gap: 10px; margin-top: 20px; backdrop-filter: blur(10px); }
+          .featured-note i { font-size: 1.5rem; color: #ffc107; flex-shrink: 0; }
+          @media (max-width: 1024px) {
+            .featured-content { flex-direction: column; text-align: center; padding: 40px 30px; }
+            .featured-icon-wrapper { width: 150px; height: 150px; }
+            .featured-icon-wrapper i { font-size: 5rem; }
+            .featured-text h2 { font-size: 2rem; }
+            .featured-highlights { grid-template-columns: 1fr; }
+            .featured-buttons { justify-content: center; }
+            .featured-badge { top: 10px; right: 10px; font-size: 0.75rem; padding: 8px 15px; }
+          }
+        </style>
+        <div class="featured-badge">
+          <i class='bx bxs-star'></i>
+          <span>ACTUALIZADO AGOSTO 2025</span>
+        </div>
+        <div class="featured-content">
+          <div class="featured-icon-wrapper">
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring delay-1"></div>
+            <div class="pulse-ring delay-2"></div>
+            <i class='bx bxs-file-pdf'></i>
+          </div>
+          <div class="featured-text">
+            <h2>📋 Reglamento Interno de Trabajo</h2>
+            <p class="featured-subtitle">Documento oficial obligatorio para todos los empleados y colaboradores</p>
+            <ul class="featured-highlights">
+              <li><i class='bx bx-check-circle'></i> Normas y políticas actualizadas</li>
+              <li><i class='bx bx-check-circle'></i> Derechos y deberes laborales</li>
+              <li><i class='bx bx-check-circle'></i> Procedimientos disciplinarios</li>
+              <li><i class='bx bx-check-circle'></i> Seguridad y salud ocupacional</li>
+            </ul>
+            <div class="featured-buttons">
+              <button onclick="downloadReglamentoInvitado()" class="btn-primary-large" id="btn-download-reglamento-inv">
+                <i class='bx bxs-download'></i>
+                <span>Descargar Reglamento</span>
+              </button>
+              <button onclick="viewReglamentoInvitado()" class="btn-secondary-large" id="btn-view-reglamento-inv">
+                <i class='bx bxs-show'></i>
+                <span>Ver en línea</span>
+              </button>
+            </div>
+            <div class="download-stats" style="display: flex; gap: 25px; margin-top: 15px; flex-wrap: wrap;">
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                <i class='bx bxs-file-pdf' style="color: #ff5722;"></i>
+                Formato PDF
+              </span>
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                <i class='bx bxs-calendar' style="color: #4caf50;"></i>
+                Agosto 2025
+              </span>
+              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
+                <i class='bx bxs-shield-alt-2' style="color: #2196f3;"></i>
+                Documento oficial
+              </span>
+            </div>
+            <p class="featured-note">
+              <i class='bx bx-info-circle'></i>
+              <strong>Importante:</strong> Es responsabilidad de cada empleado conocer y cumplir este reglamento.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER MENSAJE PARA INVITADOS -->
+      <div class="guest-footer-message" style="background: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #01579b 100%); border-radius: 20px; padding: 50px 40px; margin: 40px auto 60px; max-width: 1200px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
+        <style>
+          @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+          }
+          .coal-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffc107;
+            border-radius: 50%;
+            animation: sparkle 3s ease-in-out infinite;
+          }
+          .guest-footer-icon {
+            font-size: 3.5rem;
+            color: #ffc107;
+            display: block;
+            margin: 0 auto 20px;
+            text-align: center;
+          }
+          .guest-footer-title {
+            color: #fff;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          }
+          .guest-footer-text {
+            color: #eceff1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .mining-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+          }
+          .feature-box {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            text-align: center;
+            color: #fff;
+            transition: transform 0.3s ease;
+          }
+          .feature-box:hover {
+            transform: translateY(-5px);
+          }
+          .feature-box i {
+            font-size: 2.5rem;
+            color: #ffc107;
+            display: block;
+            margin-bottom: 10px;
+          }
+          .feature-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+          }
+          .feature-box p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+          }
+        </style>
+        
+        <!-- Efectos de brillo -->
+        <div class="coal-sparkle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="coal-sparkle" style="top: 30%; right: 20%; animation-delay: 1s;"></div>
+        <div class="coal-sparkle" style="bottom: 25%; left: 25%; animation-delay: 2s;"></div>
+        <div class="coal-sparkle" style="bottom: 15%; right: 30%; animation-delay: 1.5s;"></div>
+        
+        <div class="guest-footer-content">
+          <i class='bx bxs-buildings guest-footer-icon'></i>
+          <h3 class="guest-footer-title">Carbones Arizona S.A.S</h3>
+          <p class="guest-footer-text">
+            <strong>Más de 9 años</strong> extrayendo carbón de calidad con responsabilidad ambiental y compromiso social. 
+            Conoce nuestros servicios y únete a nuestra familia minera.
+          </p>
+          
+          <div class="mining-features">
+            <div class="feature-box">
+              <i class='bx bxs-book-content'></i>
+              <h4>Documentación</h4>
+              <p>Consulta nuestros reglamentos y políticas corporativas</p>
+            </div>
+            <div class="feature-box">
+              <i class='bx bxs-phone-call'></i>
+              <h4>Soporte Técnico</h4>
+              <p>Estamos disponibles para resolver tus dudas</p>
+            </div>
+            <div class="feature-box">
+              <i class='bx bxs-envelope'></i>
+              <h4>Contacto</h4>
+              <p>Envíanos tus consultas y sugerencias</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="scrollTopBtn" title="Volver arriba">
+        <i class='bx bxs-chevron-up'></i>
+      </button>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <p><em>Ayuda</em></p>
+      <p><em>Contáctenos</em></p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+      // ======= CONFIGURACIÓN DINÁMICA DEL SIDEBAR SEGÚN ROL =======
+      const userRole = localStorage.getItem('userRole');
+      
+      // Si es invitado, ocultar opciones protegidas
+      if (userRole === 'invitado') {
+        const protectedLinks = [
+          'Empleados.html',
+          'Gerente.html', 
+          'Departamentos.html',
+          'Areas.html',
+          'notificaciones.html',
+          'estadisticas.html',
+          'PQRS.html'
+        ];
+        
+        // Ocultar todos los enlaces protegidos
+        protectedLinks.forEach(page => {
+          const link = document.querySelector(`.nav-link a[href="${page}"]`);
+          if (link) {
+            link.closest('.nav-link').style.display = 'none';
+          }
+        });
+        
+        // Cambiar profesión mostrada
+        const profesion = document.querySelector('.profesion');
+        if (profesion) {
+          profesion.textContent = 'Invitado';
+        }
+      }
+
+      // ======= Referencias =======
+      const sidebar   = document.querySelector('.sidebar');
+      const toggleBtn = document.querySelector('.toggle');
+
+      // Ítem Empleados y su submenú (solo para usuarios admin)
+      const empleadosLink = document.querySelector('.nav-link a[href="Empleados.html"]');
+      const empleadosItem = empleadosLink ? empleadosLink.parentElement : null;
+      const submenu = empleadosItem ? empleadosItem.querySelector('.SubEmpleados') : null;
+
+      // ======= Sidebar: Hover general =======
+      sidebar.addEventListener('mouseenter', () => {
+        if (!sidebar.classList.contains('pinned')) {
+          sidebar.classList.remove('close');
+        }
+      });
+      sidebar.addEventListener('mouseleave', () => {
+        if (!sidebar.classList.contains('pinned')) {
+          sidebar.classList.add('close');
+        }
+      });
+
+      // ======= Botón Toggle (fijar/desfijar) =======
+      toggleBtn.addEventListener('click', () => {
+        if (sidebar.classList.contains('pinned')) {
+          sidebar.classList.remove('pinned');
+          sidebar.classList.add('close');
+        } else {
+          sidebar.classList.remove('close');
+          sidebar.classList.add('pinned');
+        }
+      });
+
+      // ======= Hover en "Empleados" para expandir la barra y mostrar submenú =======
+      if (empleadosItem && submenu) {
+        empleadosItem.addEventListener('mouseenter', () => {
+          // Expandir la sidebar si está colapsada
+          if (sidebar.classList.contains('close')) {
+            sidebar.classList.remove('close');
+          }
+          // Mostrar el submenú
+          submenu.style.display = 'block';
+        });
+
+        // ======= Lógica para mantener submenú abierto mientras el mouse está sobre él =======
+        let isOverSubmenu = false;
+
+        submenu.addEventListener('mouseenter', () => {
+          isOverSubmenu = true;
+        });
+        submenu.addEventListener('mouseleave', () => {
+          isOverSubmenu = false;
+          submenu.style.display = 'none';
+          if (!sidebar.classList.contains('pinned')) {
+            sidebar.classList.add('close');
+          }
+        });
+
+        // Al salir del ítem "Empleados", damos un pequeño retardo por si se mueve al submenú
+        empleadosItem.addEventListener('mouseleave', () => {
+          setTimeout(() => {
+            if (!isOverSubmenu) {
+              submenu.style.display = 'none';
+              if (!sidebar.classList.contains('pinned')) {
+                sidebar.classList.add('close');
+              }
+            }
+          }, 150);
+        });
+      }
+      
+      const btn = document.getElementById("scrollTopBtn");
+
+      window.addEventListener('scroll', () => {
+        btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const body = document.querySelector('body');
+        const modeSwitch = document.querySelector('.toggle-switch');
+        const modeText = document.querySelector('.mode-text');
+
+        if (!modeSwitch || !modeText || !body) return;
+
+        // Cargar modo desde localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+            modeText.innerText = 'Modo claro';
+        }
+
+        // Cambiar entre modo oscuro y claro
+        modeSwitch.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            modeText.innerText = isDark ? 'Modo claro' : 'Modo oscuro';
+        });
+
+        // ======= Animaciones al cargar =======
+        // Contador animado para empleados
+        const employeesCounter = document.getElementById('employees-count');
+        let count = 0;
+        const targetCount = 171; // Ajusta según tu base de datos
+        const duration = 2000;
+        const increment = targetCount / (duration / 16);
+
+        const counterInterval = setInterval(() => {
+          count += increment;
+          if (count >= targetCount) {
+            employeesCounter.textContent = targetCount;
+            clearInterval(counterInterval);
+          } else {
+            employeesCounter.textContent = Math.floor(count);
+          }
+        }, 16);
+
+        // Intersection Observer para animaciones al scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+
+        // Observar todas las tarjetas animadas
+        document.querySelectorAll('.card-animate, .objective-card, .value-card').forEach(card => {
+          observer.observe(card);
+        });
+      });
+
+      // ===== FUNCIONES DE DESCARGA DEL REGLAMENTO - INVITADOS =====
+      function showDownloadNotificationInv(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `download-notification ${type}`;
+        notification.innerHTML = `
+          <i class='bx ${type === 'success' ? 'bxs-check-circle' : type === 'error' ? 'bxs-x-circle' : 'bxs-info-circle'}'></i>
+          <span>${message}</span>
+        `;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 15px 25px;
+          border-radius: 12px;
+          color: white;
+          font-weight: 600;
+          font-size: 14px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          animation: slideInRight 0.4s ease;
+          background: ${type === 'success' ? 'linear-gradient(135deg, #4caf50 0%, #2e7d32 100%)' : 
+                       type === 'error' ? 'linear-gradient(135deg, #f44336 0%, #c62828 100%)' : 
+                       'linear-gradient(135deg, #2196f3 0%, #1565c0 100%)'};
+        `;
+        
+        if (!document.querySelector('#download-notification-styles-inv')) {
+          const style = document.createElement('style');
+          style.id = 'download-notification-styles-inv';
+          style.textContent = `
+            @keyframes slideInRight {
+              from { transform: translateX(100%); opacity: 0; }
+              to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+              from { transform: translateX(0); opacity: 1; }
+              to { transform: translateX(100%); opacity: 0; }
+            }
+          `;
+          document.head.appendChild(style);
+        }
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.animation = 'slideOutRight 0.4s ease forwards';
+          setTimeout(() => notification.remove(), 400);
+        }, 3000);
+      }
+
+      function downloadReglamentoInvitado() {
+        const btn = document.getElementById('btn-download-reglamento-inv');
+        const originalContent = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> <span>Preparando...</span>';
+        btn.disabled = true;
+        btn.style.opacity = '0.8';
+        
+        showDownloadNotificationInv('Iniciando descarga del reglamento...', 'info');
+        
+        const link = document.createElement('a');
+        link.href = 'REGLAMENTO%20INTERNO%20ACTUALIZADO%20AGOSTO%20%202025.pdf';
+        link.download = 'Reglamento_Interno_Carbones_Arizona_2025.pdf';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        setTimeout(() => {
+          link.click();
+          document.body.removeChild(link);
+          
+          btn.innerHTML = '<i class="bx bxs-check-circle"></i> <span>¡Descargado!</span>';
+          btn.style.background = 'linear-gradient(135deg, #4caf50 0%, #2e7d32 100%)';
+          showDownloadNotificationInv('Reglamento descargado exitosamente', 'success');
+          
+          setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.background = '';
+          }, 2500);
+        }, 1000);
+      }
+
+      function viewReglamentoInvitado() {
+        const btn = document.getElementById('btn-view-reglamento-inv');
+        const originalContent = btn.innerHTML;
+        
+        btn.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> <span>Abriendo...</span>';
+        btn.disabled = true;
+        
+        showDownloadNotificationInv('Abriendo documento en nueva pestaña...', 'info');
+        
+        setTimeout(() => {
+          window.open('REGLAMENTO%20INTERNO%20ACTUALIZADO%20AGOSTO%20%202025.pdf', '_blank');
+          
+          btn.innerHTML = originalContent;
+          btn.disabled = false;
+          showDownloadNotificationInv('Documento abierto correctamente', 'success');
+        }, 500);
+      }
+    </script>  </body>
+</html>

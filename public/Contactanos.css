@@ -1,0 +1,192 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Fondo con imagen y overlay más suave */
+    background: 
+        linear-gradient(rgba(30,30,30,0.25), rgba(30,30,30,0.25)),
+        url('ingenieria_de_software.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.frase-contacto {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    font-size: 2.1rem;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 4px 24px #000a, 0 2px 8px rgba(13, 71, 161, 0.8);
+    letter-spacing: 1px;
+    max-width: 700px;
+    line-height: 1.2;
+    animation: fraseFadeIn 1.2s;
+}
+
+@keyframes fraseFadeIn {
+    from { opacity: 0; transform: translateY(-30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.form-container, .container {
+    background: rgba(255,255,255,0.97);
+    padding: 48px 40px 36px 40px;
+    border-radius: 22px;
+    box-shadow: 0 12px 40px rgba(13, 71, 161, 0.22), 0 2px 12px rgba(0,0,0,0.13);
+    width: 480px;
+    max-width: 98vw;
+    animation: fadeIn 1s;
+    backdrop-filter: blur(2.5px);
+    margin-bottom: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+h2, h1 {
+    text-align: center;
+    color: #0D47A1;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px #fff8;
+}
+
+.form-desc, .box-info h1 {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin: 14px 0 7px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.5px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="email"],
+.input-box input[type="tel"],
+.input-box textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fafafa;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.input-box input:focus,
+.input-box textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    border: 1.5px solid #1565C0;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.13);
+}
+
+.input-box textarea,
+textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+button[type="submit"],
+input[type="submit"] {
+    background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 16px;
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #0D47A1 0%, #01579B 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(13, 71, 161, 0.4);
+}
+
+.btn-volver-inicio {
+    background: #fff;
+    color: #1565C0;
+    border: 2px solid #1565C0;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+}
+.btn-volver-inicio:hover {
+    background: #1565C0;
+    color: #fff;
+    border: 2px solid #1565C0;
+}
+
+#msg, .alert {
+    margin: 18px 0;
+    padding: 16px;
+    border-radius: 9px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 2px 8px #0001;
+}
+.success, .alert.success { background-color: #d4edda; color: #155724; }
+.error, .alert.error { background-color: #f8d7da; color: #721c24; }
+
+@media (max-width: 700px) {
+    .form-container, .container {
+        padding: 18px 4vw 16px 4vw;
+        width: 99vw;
+    }
+    .frase-contacto {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 16px;
+    }
+    h2, h1 { font-size: 20px; }
+}
+
+.input-box i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1565C0;
+    font-size: 18px;
+    pointer-events: none;
+}
+.input-box {
+    position: relative;
+}
