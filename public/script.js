@@ -124,54 +124,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LOGIN COMO INVITADO
+    // LOGIN COMO INVITADO - Funciona sin API (solo frontend)
     const guestLoginBtn = document.getElementById('guest-login-btn');
     if (guestLoginBtn) {
-        guestLoginBtn.addEventListener('click', async function() {
+        guestLoginBtn.addEventListener('click', function() {
             guestLoginBtn.disabled = true;
             const originalHTML = guestLoginBtn.innerHTML;
             guestLoginBtn.innerHTML = 'ACCEDIENDO...';
             guestLoginBtn.style.opacity = '0.7';
 
-            try {
-                const response = await fetch('/auth/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: 'invitado@carbonesarizona.com',
-                        password: 'Invitado2025'
-                    })
-                });
+            // Login directo sin API - Guardar en localStorage
+            const guestData = {
+                email: 'invitado@carbonesarizona.com',
+                role: 'invitado',
+                name: 'Visitante'
+            };
 
-                const data = await response.json();
+            localStorage.setItem('authToken', 'guest-token-' + Date.now());
+            localStorage.setItem('userRole', 'invitado');
+            localStorage.setItem('userEmail', guestData.email);
+            localStorage.setItem('userName', guestData.name);
+            localStorage.setItem('usuarioActivo', JSON.stringify(guestData));
 
-                if (response.ok && data.success) {
-                    localStorage.setItem('authToken', data.token);
-                    localStorage.setItem('userRole', 'invitado');
-                    localStorage.setItem('userEmail', data.email);
-                    localStorage.setItem('userName', data.name);
-                    localStorage.setItem('usuarioActivo', JSON.stringify({
-                        email: data.email,
-                        role: 'invitado',
-                        name: data.name
-                    }));
-
-                    showNotification('Acceso como invitado concedido', 'success');
-                    
-                    setTimeout(() => {
-                        window.location.href = 'Inicio.html';
-                    }, 1000);
-                } else {
-                    showNotification(data.message || 'Error al acceder como invitado', 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showNotification('Error de conexión con el servidor', 'error');
-            } finally {
-                guestLoginBtn.disabled = false;
-                guestLoginBtn.innerHTML = originalHTML;
-                guestLoginBtn.style.opacity = '1';
-            }
+            showNotification('Acceso como invitado concedido', 'success');
+            
+            setTimeout(() => {
+                window.location.href = 'Inicio.html';
+            }, 1000);
         });
     }
 
