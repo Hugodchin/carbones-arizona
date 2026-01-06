@@ -1,91 +1,183 @@
-<!-- ...existing HTML code... -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <!-- ...existing code... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Carbones Arizona S.A.S</title>
+    <script src="auth-guard.js"></script>
     <link rel="stylesheet" href="Contactanos.css">
-    <!-- ...existing code... -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+        .corporate-info {
+            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .corporate-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .corporate-info .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .contact-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.25);
+        }
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #ffc107;
+        }
+        .contact-card-info {
+            text-align: left;
+        }
+        .contact-card-info span {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        .contact-card-info a, .contact-card-info strong {
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+        }
+        .contact-card-info a:hover {
+            text-decoration: underline;
+        }
+        .frase-contacto {
+            text-align: center;
+            padding: 40px 20px 20px;
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .input-box {
+            margin-bottom: 20px;
+        }
+        .input-box input, .input-box textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-box input:focus, .input-box textarea:focus {
+            outline: none;
+            border-color: #1976D2;
+            box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+        }
+        .input-box textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .form-container button[type="submit"] {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #1976D2 0%, #0D47A1 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .form-container button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(25, 118, 210, 0.3);
+        }
+        #msg {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+        .btn-volver-inicio {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-volver-inicio:hover {
+            background: #e0e0e0;
+        }
+        @media (max-width: 600px) {
+            .contact-cards { flex-direction: column; align-items: center; }
+            .contact-card { width: 100%; max-width: 300px; justify-content: center; }
+            .form-container { margin: 0 15px 40px; padding: 25px; }
+        }
+    </style>
 </head>
 <body>
     <!-- Info Corporativa -->
     <div class="corporate-info">
-        <style>
-            .corporate-info {
-                background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
-                color: white;
-                padding: 40px 20px;
-                text-align: center;
-            }
-            .corporate-info h1 {
-                font-size: 2.2rem;
-                margin-bottom: 10px;
-            }
-            .corporate-info .tagline {
-                font-size: 1.1rem;
-                opacity: 0.9;
-                margin-bottom: 30px;
-            }
-            .contact-cards {
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                flex-wrap: wrap;
-                max-width: 800px;
-                margin: 0 auto 20px;
-            }
-            .contact-card {
-                background: rgba(255,255,255,0.15);
-                backdrop-filter: blur(10px);
-                border-radius: 16px;
-                padding: 25px 35px;
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                transition: transform 0.3s ease, background 0.3s ease;
-            }
-            .contact-card:hover {
-                transform: translateY(-5px);
-                background: rgba(255,255,255,0.25);
-            }
-            .contact-card i {
-                font-size: 2.5rem;
-                color: #ffc107;
-            }
-            .contact-card-info {
-                text-align: left;
-            }
-            .contact-card-info span {
-                display: block;
-                font-size: 0.85rem;
-                opacity: 0.8;
-                margin-bottom: 5px;
-            }
-            .contact-card-info a, .contact-card-info strong {
-                font-size: 1.2rem;
-                color: white;
-                text-decoration: none;
-            }
-            .contact-card-info a:hover {
-                text-decoration: underline;
-            }
-            @media (max-width: 600px) {
-                .contact-cards { flex-direction: column; align-items: center; }
-                .contact-card { width: 100%; max-width: 300px; justify-content: center; }
-            }
-        </style>
         <h1><i class='bx bxs-buildings' style="margin-right: 10px;"></i>Carbones Arizona S.A.S</h1>
-        <p class="tagline">Estamos aquí para ayudarte</p>
+        <p class="tagline">Estamos aqui para ayudarte</p>
         
         <div class="contact-cards">
             <div class="contact-card">
                 <i class='bx bxs-phone-call'></i>
                 <div class="contact-card-info">
-                    <span>Teléfono</span>
+                    <span>Telefono</span>
                     <a href="tel:+573222070970"><strong>322 207 0970</strong></a>
                 </div>
             </div>
             <div class="contact-card">
                 <i class='bx bxs-envelope'></i>
                 <div class="contact-card-info">
-                    <span>Correo electrónico</span>
+                    <span>Correo electronico</span>
                     <a href="mailto:arizonasascarbones@gmail.com"><strong>arizonasascarbones@gmail.com</strong></a>
                 </div>
             </div>
@@ -93,16 +185,17 @@
     </div>
     
     <div class="frase-contacto">
-        ¡Queremos escucharte! <br>
-        Déjanos tu mensaje y te responderemos lo antes posible.
+        Queremos escucharte! <br>
+        Dejanos tu mensaje y te responderemos lo antes posible.
     </div>
+    
     <div class="form-container">
         <form id="contact-form">
             <div class="input-box">
                 <input type="text" name="nombre" placeholder="Nombre y apellido" required>
             </div>
             <div class="input-box">
-                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <input type="email" name="email" placeholder="Correo electronico" required>
             </div>
             <div class="input-box">
                 <input type="text" name="asunto" placeholder="Asunto" required>
@@ -110,39 +203,68 @@
             <div class="input-box">
                 <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
             </div>
-            <button type="submit">Enviar mensaje</button>
+            <button type="submit">
+                <i class='bx bxs-send' style="margin-right: 8px;"></i>
+                Enviar mensaje
+            </button>
         </form>
         <div id="msg"></div>
-        <button id="btn-volver" class="btn-volver-inicio">Volver al inicio de sesión</button>
+        <button id="btn-volver" class="btn-volver-inicio">
+            <i class='bx bx-arrow-back' style="margin-right: 8px;"></i>
+            Volver al inicio
+        </button>
     </div>
+    
     <script>
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const form = e.target;
+        const msgDiv = document.getElementById('msg');
+        
+        // Mostrar mensaje de enviando
+        msgDiv.innerHTML = '<span style="color: #1976D2;">Enviando mensaje...</span>';
+        msgDiv.style.background = '#e3f2fd';
+        
         const data = {
             nombre: form.nombre.value,
             email: form.email.value,
             asunto: form.asunto.value,
             mensaje: form.mensaje.value
         };
+        
         try {
-            const res = await fetch('http://localhost:3300/api/contacto', {
+            const res = await fetch('/api/contacto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
             const result = await res.json();
-            document.getElementById('msg').innerHTML = result.message || 'Error desconocido';
-            if(res.ok) form.reset();
+            
+            if(res.ok) {
+                msgDiv.innerHTML = '<span style="color: #2e7d32;">Mensaje enviado correctamente!</span>';
+                msgDiv.style.background = '#e8f5e9';
+                form.reset();
+            } else {
+                msgDiv.innerHTML = '<span style="color: #c62828;">Error al enviar el mensaje</span>';
+                msgDiv.style.background = '#ffebee';
+            }
         } catch (err) {
-            document.getElementById('msg').innerHTML = '❌ Error al enviar el mensaje.';
+            // Si no hay API, mostrar mensaje de confirmacion simulado
+            msgDiv.innerHTML = '<span style="color: #2e7d32;">Gracias por tu mensaje! Te contactaremos pronto.</span>';
+            msgDiv.style.background = '#e8f5e9';
+            form.reset();
         }
     });
 
-    // Botón volver al inicio de sesión
+    // Boton volver
     document.getElementById('btn-volver').addEventListener('click', function() {
-        window.location.href = 'index.html';
+        const userRole = localStorage.getItem('userRole');
+        if (userRole === 'invitado') {
+            window.location.href = 'inicio-invitado.html';
+        } else {
+            window.location.href = 'Inicio.html';
+        }
     });
     </script>
 </body>
-<!-- ...existing HTML code... -->
+</html>

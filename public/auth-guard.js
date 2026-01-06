@@ -12,6 +12,7 @@
             'inicio-invitado.html',
             'soporte.html',
             'contacto.html',
+            'documentacion.html',
             'index.html'
         ],
         // Páginas solo para RRHH y Gerente
@@ -39,7 +40,14 @@
         
         // Token de invitado (formato: guest-token-timestamp)
         if (token.startsWith('guest-token-')) {
-            return true; // Los tokens de invitado son válidos
+            // SEGURIDAD: Si el token es de invitado, el rol DEBE ser invitado
+            const userRole = localStorage.getItem('userRole');
+            if (userRole && userRole !== 'invitado') {
+                console.log('🚨 ALERTA DE SEGURIDAD: Token de invitado pero rol manipulado');
+                localStorage.clear(); // Limpiar todo por intento de manipulacion
+                return false;
+            }
+            return true;
         }
         
         try {
@@ -53,6 +61,14 @@
             // Verificar si el token ha expirado
             if (payload.exp && payload.exp < now) {
                 console.log('⏰ Token expirado');
+                return false;
+            }
+            
+            // SEGURIDAD: Verificar que el rol en localStorage coincida con el del token
+            const storedRole = localStorage.getItem('userRole');
+            if (payload.role && storedRole && payload.role !== storedRole) {
+                console.log('🚨 ALERTA DE SEGURIDAD: Rol en token no coincide con localStorage');
+                localStorage.clear();
                 return false;
             }
             

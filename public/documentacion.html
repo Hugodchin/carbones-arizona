@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentación - Carbones Arizona S.A.S</title>
+    <script src="auth-guard.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -411,11 +412,24 @@
                 <span>Centro de Documentación</span>
             </div>
         </div>
-        <a href="inicio-invitado.html" class="btn-back">
+        <a href="#" id="btn-volver" class="btn-back">
             <i class='bx bx-arrow-back'></i>
             Volver al Inicio
         </a>
     </header>
+    
+    <script>
+        // Configurar boton volver segun rol
+        document.getElementById('btn-volver').addEventListener('click', function(e) {
+            e.preventDefault();
+            const userRole = localStorage.getItem('userRole');
+            if (userRole === 'invitado') {
+                window.location.href = 'inicio-invitado.html';
+            } else {
+                window.location.href = 'Inicio.html';
+            }
+        });
+    </script>
     
     <!-- Hero Section -->
     <section class="hero">
