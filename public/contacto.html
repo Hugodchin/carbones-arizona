@@ -5,6 +5,93 @@
     <!-- ...existing code... -->
 </head>
 <body>
+    <!-- Info Corporativa -->
+    <div class="corporate-info">
+        <style>
+            .corporate-info {
+                background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+                color: white;
+                padding: 40px 20px;
+                text-align: center;
+            }
+            .corporate-info h1 {
+                font-size: 2.2rem;
+                margin-bottom: 10px;
+            }
+            .corporate-info .tagline {
+                font-size: 1.1rem;
+                opacity: 0.9;
+                margin-bottom: 30px;
+            }
+            .contact-cards {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+                max-width: 800px;
+                margin: 0 auto 20px;
+            }
+            .contact-card {
+                background: rgba(255,255,255,0.15);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                padding: 25px 35px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                transition: transform 0.3s ease, background 0.3s ease;
+            }
+            .contact-card:hover {
+                transform: translateY(-5px);
+                background: rgba(255,255,255,0.25);
+            }
+            .contact-card i {
+                font-size: 2.5rem;
+                color: #ffc107;
+            }
+            .contact-card-info {
+                text-align: left;
+            }
+            .contact-card-info span {
+                display: block;
+                font-size: 0.85rem;
+                opacity: 0.8;
+                margin-bottom: 5px;
+            }
+            .contact-card-info a, .contact-card-info strong {
+                font-size: 1.2rem;
+                color: white;
+                text-decoration: none;
+            }
+            .contact-card-info a:hover {
+                text-decoration: underline;
+            }
+            @media (max-width: 600px) {
+                .contact-cards { flex-direction: column; align-items: center; }
+                .contact-card { width: 100%; max-width: 300px; justify-content: center; }
+            }
+        </style>
+        <h1><i class='bx bxs-buildings' style="margin-right: 10px;"></i>Carbones Arizona S.A.S</h1>
+        <p class="tagline">Estamos aquí para ayudarte</p>
+        
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class='bx bxs-phone-call'></i>
+                <div class="contact-card-info">
+                    <span>Teléfono</span>
+                    <a href="tel:+573222070970"><strong>322 207 0970</strong></a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <i class='bx bxs-envelope'></i>
+                <div class="contact-card-info">
+                    <span>Correo electrónico</span>
+                    <a href="mailto:arizonasascarbones@gmail.com"><strong>arizonasascarbones@gmail.com</strong></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="frase-contacto">
         ¡Queremos escucharte! <br>
         Déjanos tu mensaje y te responderemos lo antes posible.

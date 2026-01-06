@@ -1,23 +1,23 @@
 ===========================================
   CARPETA DE DOCUMENTOS PÚBLICOS
-  Carbones Arizona
+  Carbones Arizona S.A.S
 ===========================================
 
 INSTRUCCIONES:
 --------------
-Coloca aquí los archivos PDF que deseas que los invitados puedan descargar desde la página inicio-invitado.html
+Coloca aquí los archivos PDF que deseas que los invitados puedan descargar.
 
-Documentos sugeridos:
---------------------
-1. manual-empleado.pdf - Manual del Empleado
-2. politicas-seguridad.pdf - Políticas de Seguridad
-3. codigo-etica.pdf - Código de Ética
-4. vacantes.pdf - Oportunidades Laborales (opcional)
+DOCUMENTOS REQUERIDOS:
+----------------------
+1. reglamento-interno-2026.pdf       - Reglamento Interno de Trabajo (Actualizado Enero 2026)
+2. protocolo-acoso-violencia-sexual.pdf - Protocolo de Prevención de Acoso y Violencia Sexual
+3. politica-seguridad-ocupacional.pdf   - Políticas de Seguridad y Salud Ocupacional
 
 NOTAS:
 ------
 - Los archivos deben estar en formato PDF
-- Usa nombres descriptivos sin espacios (usa guiones o guiones bajos)
+- Usa los nombres exactos indicados arriba para que funcionen con el sistema
+- Si no tienes algún documento, puedes eliminar su entrada en inicio-invitado.html
 - Tamaño máximo recomendado: 10MB por archivo
 - Estos documentos son de ACCESO PÚBLICO para todos los visitantes
 

@@ -240,119 +240,126 @@
         </div>
       </div>
 
-      <!-- DOCUMENTO DESTACADO: Reglamento Interno -->
-      <div class="featured-document" style="background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%); border-radius: 24px; padding: 0; margin: 40px auto 60px; max-width: 1200px; box-shadow: 0 20px 60px rgba(13, 71, 161, 0.4); position: relative; overflow: hidden; animation: featuredPulse 3s ease-in-out infinite;">
+      <!-- ACCESOS RÁPIDOS - Panel profesional -->
+      <div class="quick-access-section" style="margin: 40px auto 60px; max-width: 1200px;">
         <style>
-          @keyframes featuredPulse {
-            0%, 100% { box-shadow: 0 20px 60px rgba(13, 71, 161, 0.4); }
-            50% { box-shadow: 0 20px 80px rgba(13, 71, 161, 0.6); }
+          .quick-access-title {
+            text-align: center;
+            margin-bottom: 40px;
           }
-          @keyframes badgeBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+          .quick-access-title h2 {
+            font-size: 2rem;
+            color: #0D47A1;
+            margin-bottom: 10px;
           }
-          @keyframes starRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+          .quick-access-title p {
+            color: #666;
+            font-size: 1.1rem;
           }
-          @keyframes pulseRing {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
+          body.dark .quick-access-title h2 { color: #64B5F6; }
+          body.dark .quick-access-title p { color: #aaa; }
+          
+          .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
           }
-          @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+          .quick-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
           }
-          .featured-badge {
-            position: absolute; top: 20px; right: 20px;
-            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
-            color: #000; padding: 10px 20px; border-radius: 50px;
-            font-weight: bold; font-size: 0.85rem; display: flex;
-            align-items: center; gap: 8px; z-index: 10;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
-            animation: badgeBounce 2s ease-in-out infinite;
+          .quick-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(13, 71, 161, 0.2);
           }
-          .featured-badge i { font-size: 1.2rem; animation: starRotate 4s linear infinite; }
-          .featured-content { display: flex; align-items: center; gap: 40px; padding: 50px 60px; position: relative; }
-          .featured-icon-wrapper { position: relative; width: 200px; height: 200px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-          .pulse-ring { position: absolute; width: 100%; height: 100%; border: 3px solid rgba(255, 255, 255, 0.5); border-radius: 50%; animation: pulseRing 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
-          .pulse-ring.delay-1 { animation-delay: 1s; }
-          .pulse-ring.delay-2 { animation-delay: 2s; }
-          .featured-icon-wrapper i { font-size: 7rem; color: white; z-index: 5; position: relative; animation: iconFloat 3s ease-in-out infinite; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
-          .featured-text { flex: 1; color: white; }
-          .featured-text h2 { font-size: 2.5rem; margin-bottom: 15px; color: white; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-          .featured-subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 25px; line-height: 1.6; }
-          .featured-highlights { list-style: none; padding: 0; margin: 25px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-          .featured-highlights li { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; padding: 8px 0; }
-          .featured-highlights i { color: #4caf50; font-size: 1.5rem; background: white; border-radius: 50%; padding: 2px; }
-          .featured-buttons { display: flex; gap: 15px; margin: 30px 0 20px 0; flex-wrap: wrap; }
-          .btn-primary-large, .btn-secondary-large { padding: 18px 35px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease; border: none; position: relative; overflow: hidden; }
-          .btn-primary-large { background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); color: #000; box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4); }
-          .btn-primary-large:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 35px rgba(255, 193, 7, 0.6); }
-          .btn-secondary-large { background: transparent; color: white; border: 2px solid white; }
-          .btn-secondary-large:hover { background: white; color: #0D47A1; transform: translateY(-3px); }
-          .featured-note { background: rgba(255, 255, 255, 0.15); padding: 15px 20px; border-radius: 12px; border-left: 4px solid #ffc107; display: flex; align-items: center; gap: 10px; margin-top: 20px; backdrop-filter: blur(10px); }
-          .featured-note i { font-size: 1.5rem; color: #ffc107; flex-shrink: 0; }
-          @media (max-width: 1024px) {
-            .featured-content { flex-direction: column; text-align: center; padding: 40px 30px; }
-            .featured-icon-wrapper { width: 150px; height: 150px; }
-            .featured-icon-wrapper i { font-size: 5rem; }
-            .featured-text h2 { font-size: 2rem; }
-            .featured-highlights { grid-template-columns: 1fr; }
-            .featured-buttons { justify-content: center; }
-            .featured-badge { top: 10px; right: 10px; font-size: 0.75rem; padding: 8px 15px; }
+          body.dark .quick-card {
+            background: linear-gradient(145deg, #2d2d2d 0%, #252525 100%);
+            border-color: rgba(255,255,255,0.1);
+          }
+          body.dark .quick-card:hover {
+            box-shadow: 0 20px 50px rgba(100, 181, 246, 0.2);
+          }
+          .quick-card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            color: white;
+          }
+          .quick-card-icon.blue { background: linear-gradient(135deg, #1976D2 0%, #0D47A1 100%); }
+          .quick-card-icon.green { background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%); }
+          .quick-card-icon.orange { background: linear-gradient(135deg, #FB8C00 0%, #EF6C00 100%); }
+          .quick-card-icon.purple { background: linear-gradient(135deg, #7B1FA2 0%, #512DA8 100%); }
+          
+          .quick-card h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+          }
+          body.dark .quick-card h3 { color: #fff; }
+          .quick-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+          }
+          body.dark .quick-card p { color: #aaa; }
+          
+          @media (max-width: 768px) {
+            .quick-access-grid { grid-template-columns: 1fr; padding: 0 15px; }
+            .quick-card { padding: 25px 20px; }
           }
         </style>
-        <div class="featured-badge">
-          <i class='bx bxs-star'></i>
-          <span>ACTUALIZADO AGOSTO 2025</span>
+        
+        <div class="quick-access-title">
+          <h2><i class='bx bxs-dashboard' style="margin-right: 10px;"></i>Panel de Acceso Rápido</h2>
+          <p>Accede fácilmente a las funciones principales del sistema</p>
         </div>
-        <div class="featured-content">
-          <div class="featured-icon-wrapper">
-            <div class="pulse-ring"></div>
-            <div class="pulse-ring delay-1"></div>
-            <div class="pulse-ring delay-2"></div>
-            <i class='bx bxs-file-pdf'></i>
-          </div>
-          <div class="featured-text">
-            <h2>📋 Reglamento Interno de Trabajo</h2>
-            <p class="featured-subtitle">Documento oficial obligatorio para todos los empleados y colaboradores</p>
-            <ul class="featured-highlights">
-              <li><i class='bx bx-check-circle'></i> Normas y políticas actualizadas</li>
-              <li><i class='bx bx-check-circle'></i> Derechos y deberes laborales</li>
-              <li><i class='bx bx-check-circle'></i> Procedimientos disciplinarios</li>
-              <li><i class='bx bx-check-circle'></i> Seguridad y salud ocupacional</li>
-            </ul>
-            <div class="featured-buttons">
-              <button onclick="downloadReglamento()" class="btn-primary-large" id="btn-download-reglamento">
-                <i class='bx bxs-download'></i>
-                <span>Descargar Reglamento</span>
-              </button>
-              <button onclick="viewReglamento()" class="btn-secondary-large" id="btn-view-reglamento">
-                <i class='bx bxs-show'></i>
-                <span>Ver en línea</span>
-              </button>
+        
+        <div class="quick-access-grid">
+          <a href="Empleados.html" class="quick-card">
+            <div class="quick-card-icon blue">
+              <i class='bx bxs-user-detail'></i>
             </div>
-            <div class="download-stats" style="display: flex; gap: 25px; margin-top: 15px; flex-wrap: wrap;">
-              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                <i class='bx bxs-file-pdf' style="color: #ff5722;"></i>
-                Formato PDF
-              </span>
-              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                <i class='bx bxs-calendar' style="color: #4caf50;"></i>
-                Agosto 2025
-              </span>
-              <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                <i class='bx bxs-shield-alt-2' style="color: #2196f3;"></i>
-                Documento oficial
-              </span>
+            <h3>Gestión de Empleados</h3>
+            <p>Consulta, edita y administra la información de los empleados</p>
+          </a>
+          
+          <a href="estadisticas.html" class="quick-card">
+            <div class="quick-card-icon green">
+              <i class='bx bxs-pie-chart-alt-2'></i>
             </div>
-            <p class="featured-note">
-              <i class='bx bx-info-circle'></i>
-              <strong>Importante:</strong> Es responsabilidad de cada empleado conocer y cumplir este reglamento.
-            </p>
-          </div>
+            <h3>Estadísticas</h3>
+            <p>Visualiza gráficos y reportes del personal</p>
+          </a>
+          
+          <a href="Departamentos.html" class="quick-card">
+            <div class="quick-card-icon orange">
+              <i class='bx bxs-building-house'></i>
+            </div>
+            <h3>Departamentos</h3>
+            <p>Organización y estructura departamental</p>
+          </a>
+          
+          <a href="notificaciones.html" class="quick-card">
+            <div class="quick-card-icon purple">
+              <i class='bx bxs-bell-ring'></i>
+            </div>
+            <h3>Notificaciones</h3>
+            <p>Revisa alertas y actualizaciones del sistema</p>
+          </a>
         </div>
       </div>
 

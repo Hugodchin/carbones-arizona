@@ -506,10 +506,10 @@
           </p>
           
           <div class="mining-features">
-            <div class="feature-box">
+            <div class="feature-box" onclick="openDocsModal()" style="cursor: pointer;">
               <i class='bx bxs-book-content'></i>
               <h4>Documentación</h4>
-              <p>Consulta nuestros reglamentos y políticas corporativas</p>
+              <p>Reglamentos, políticas y protocolos corporativos</p>
             </div>
             <div class="feature-box">
               <i class='bx bxs-phone-call'></i>
@@ -520,6 +520,214 @@
               <i class='bx bxs-envelope'></i>
               <h4>Contacto</h4>
               <p>Envíanos tus consultas y sugerencias</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL DE DOCUMENTACIÓN -->
+      <div id="docsModal" class="docs-modal" onclick="closeDocsModal(event)">
+        <style>
+          .docs-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+          }
+          .docs-modal.active { display: flex; }
+          .docs-modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            animation: modalSlide 0.4s ease;
+          }
+          @keyframes modalSlide {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+          .docs-modal-header {
+            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
+            color: white;
+            padding: 30px 35px;
+            border-radius: 24px 24px 0 0;
+            position: relative;
+          }
+          .docs-modal-header h2 {
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+          }
+          .docs-modal-header p {
+            opacity: 0.9;
+            margin: 0;
+          }
+          .docs-close-btn {
+            position: absolute;
+            top: 20px; right: 25px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+          }
+          .docs-close-btn:hover { background: rgba(255,255,255,0.4); }
+          .docs-list {
+            padding: 30px 35px;
+          }
+          .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+          }
+          .doc-item:hover {
+            background: #e3f2fd;
+            border-color: #1976D2;
+            transform: translateX(10px);
+          }
+          .doc-icon {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .doc-icon i { color: white; font-size: 2rem; }
+          .doc-info { flex: 1; }
+          .doc-info h4 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 1.1rem;
+          }
+          .doc-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+          }
+          .doc-badge {
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+          }
+          .doc-badge.new { background: #ff9800; }
+          .doc-actions {
+            display: flex;
+            gap: 10px;
+          }
+          .doc-btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+          }
+          .doc-btn.primary {
+            background: #1976D2;
+            color: white;
+          }
+          .doc-btn.primary:hover { background: #0D47A1; }
+          .doc-btn.secondary {
+            background: #e0e0e0;
+            color: #333;
+          }
+          .doc-btn.secondary:hover { background: #bdbdbd; }
+          @media (max-width: 600px) {
+            .doc-item { flex-direction: column; text-align: center; }
+            .doc-actions { width: 100%; justify-content: center; }
+          }
+        </style>
+        
+        <div class="docs-modal-content" onclick="event.stopPropagation()">
+          <div class="docs-modal-header">
+            <h2><i class='bx bxs-folder-open' style="margin-right: 10px;"></i>Documentación Corporativa</h2>
+            <p>Accede a los reglamentos y políticas de Carbones Arizona S.A.S</p>
+            <button class="docs-close-btn" onclick="closeDocsModal(event)">&times;</button>
+          </div>
+          <div class="docs-list">
+            <!-- Reglamento Interno Actualizado -->
+            <div class="doc-item">
+              <div class="doc-icon">
+                <i class='bx bxs-file-pdf'></i>
+              </div>
+              <div class="doc-info">
+                <h4>Reglamento Interno de Trabajo</h4>
+                <p>Normas, derechos y deberes de los trabajadores</p>
+                <span class="doc-badge new">Actualizado Enero 2026</span>
+              </div>
+              <div class="doc-actions">
+                <button class="doc-btn primary" onclick="downloadDocument('reglamento-interno-2026.pdf')">
+                  <i class='bx bxs-download'></i> Descargar
+                </button>
+                <button class="doc-btn secondary" onclick="viewDocument('reglamento-interno-2026.pdf')">
+                  <i class='bx bxs-show'></i> Ver
+                </button>
+              </div>
+            </div>
+            
+            <!-- Protocolo de Acoso -->
+            <div class="doc-item">
+              <div class="doc-icon" style="background: linear-gradient(135deg, #7b1fa2 0%, #512da8 100%);">
+                <i class='bx bxs-shield-alt-2'></i>
+              </div>
+              <div class="doc-info">
+                <h4>Protocolo de Prevención de Acoso y Violencia Sexual</h4>
+                <p>Políticas de protección y procedimientos de denuncia</p>
+                <span class="doc-badge new">Nuevo</span>
+              </div>
+              <div class="doc-actions">
+                <button class="doc-btn primary" onclick="downloadDocument('protocolo-acoso-violencia-sexual.pdf')">
+                  <i class='bx bxs-download'></i> Descargar
+                </button>
+                <button class="doc-btn secondary" onclick="viewDocument('protocolo-acoso-violencia-sexual.pdf')">
+                  <i class='bx bxs-show'></i> Ver
+                </button>
+              </div>
+            </div>
+            
+            <!-- Políticas de Seguridad -->
+            <div class="doc-item">
+              <div class="doc-icon" style="background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);">
+                <i class='bx bxs-hard-hat'></i>
+              </div>
+              <div class="doc-info">
+                <h4>Políticas de Seguridad y Salud Ocupacional</h4>
+                <p>Lineamientos de seguridad en operaciones mineras</p>
+                <span class="doc-badge">Vigente</span>
+              </div>
+              <div class="doc-actions">
+                <button class="doc-btn primary" onclick="downloadDocument('politica-seguridad-ocupacional.pdf')">
+                  <i class='bx bxs-download'></i> Descargar
+                </button>
+                <button class="doc-btn secondary" onclick="viewDocument('politica-seguridad-ocupacional.pdf')">
+                  <i class='bx bxs-show'></i> Ver
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -537,6 +745,34 @@
 
     <!-- Script JavaScript -->
     <script>
+      // ======= FUNCIONES MODAL DE DOCUMENTACIÓN =======
+      function openDocsModal() {
+        document.getElementById('docsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeDocsModal(e) {
+        if (e) e.stopPropagation();
+        document.getElementById('docsModal').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      function downloadDocument(filename) {
+        const link = document.createElement('a');
+        link.href = 'documentos/' + filename;
+        link.download = filename;
+        link.click();
+      }
+      
+      function viewDocument(filename) {
+        window.open('documentos/' + filename, '_blank');
+      }
+      
+      // Cerrar modal con ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeDocsModal();
+      });
+      
       // ======= CONFIGURACIÓN DINÁMICA DEL SIDEBAR SEGÚN ROL =======
       const userRole = localStorage.getItem('userRole');
       
